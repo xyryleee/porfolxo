@@ -1,0 +1,229 @@
+<!DOCTYPE html><html class="light" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Xyryle Adrian B. Cator | Web Developer Portfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@100..900&amp;family=JetBrains+Mono:wght@100..900&amp;display=swap" rel="stylesheet">
+<link href="shared/styles.css" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-variant": "#dce2f3",
+                    "secondary-fixed-dim": "#c5c7c8",
+                    "secondary": "#5c5f60",
+                    "inverse-primary": "#d2bbff",
+                    "on-primary-fixed": "#25005a",
+                    "on-primary-fixed-variant": "#5a00c6",
+                    "surface-dim": "#d3daea",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed": "#eaddff",
+                    "on-tertiary-container": "#dfe5fa",
+                    "on-error-container": "#93000a",
+                    "surface-container": "#e7eefe",
+                    "secondary-container": "#e1e3e4",
+                    "inverse-surface": "#2a313d",
+                    "on-background": "#151c27",
+                    "primary-container": "#7c3aed",
+                    "on-primary": "#ffffff",
+                    "surface": "#f9f9ff",
+                    "on-secondary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "on-surface": "#151c27",
+                    "primary": "#630ed4",
+                    "surface-bright": "#f9f9ff",
+                    "outline": "#7b7487",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-on-surface": "#ebf1ff",
+                    "error": "#ba1a1a",
+                    "outline-variant": "#ccc3d8",
+                    "on-secondary-fixed": "#191c1d",
+                    "on-secondary-container": "#626566",
+                    "on-primary-container": "#ede0ff",
+                    "tertiary-container": "#5f6678",
+                    "tertiary-fixed": "#dce2f7",
+                    "background": "#f9f9ff",
+                    "surface-container-low": "#f0f3ff",
+                    "on-tertiary-fixed-variant": "#404758",
+                    "error-container": "#ffdad6",
+                    "primary-fixed-dim": "#d2bbff",
+                    "on-tertiary-fixed": "#141b2b",
+                    "on-surface-variant": "#4a4455",
+                    "surface-container-high": "#e2e8f8",
+                    "surface-container-highest": "#dce2f3",
+                    "tertiary": "#474e60",
+                    "surface-tint": "#732ee4",
+                    "secondary-fixed": "#e1e3e4",
+                    "tertiary-fixed-dim": "#c0c6db",
+                    "on-secondary-fixed-variant": "#454748"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-max": "1280px",
+                    "section-padding-mobile": "64px",
+                    "stack-lg": "32px",
+                    "stack-sm": "8px",
+                    "section-padding-desktop": "120px",
+                    "gutter": "24px",
+                    "stack-md": "16px"
+            },
+            "fontFamily": {
+                    "label-caps": ["Hanken Grotesk"],
+                    "body-lg": ["Hanken Grotesk"],
+                    "display": ["Hanken Grotesk"],
+                    "headline-md": ["Hanken Grotesk"],
+                    "label-code": ["JetBrains Mono"],
+                    "body-md": ["Hanken Grotesk"],
+                    "headline-lg": ["Hanken Grotesk"],
+                    "headline-lg-mobile": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                    "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "label-code": ["14px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .diagonal-split {
+            clip-path: polygon(0 0, 100% 0, 75% 100%, 0% 100%);
+        }
+        @media (max-width: 768px) {
+            .diagonal-split {
+                clip-path: none;
+            }
+        }
+        .hero-circle-accent {
+            border: 2px solid #7c3aed;
+            border-radius: 50%;
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            right: -200px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+        .social-btn {
+            @apply flex items-center justify-center w-10 h-10 rounded-full border border-outline-variant text-primary transition-all duration-300 hover:bg-primary hover:text-on-primary;
+        }
+        
+        .dropdown-menu {
+            display: none;
+        }
+        .group:hover .dropdown-menu {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden">
+<div id="site-header-mount"></div>
+<main class="min-h-screen flex items-center">
+<!-- Hero Section -->
+<section class="relative w-full md:h-screen flex flex-col md:flex-row overflow-hidden pt-20 md:pt-0">
+<!-- Left Side: Content -->
+<div class="w-full md:w-3/5 bg-surface-container-lowest md:h-full flex items-center z-10 px-gutter py-16 md:py-0 md:pl-24 lg:pl-32">
+<div class="max-w-xl space-y-6">
+<div class="space-y-2" data-reveal="">
+<p class="font-headline-md text-headline-md text-on-surface-variant">Hello, I am</p>
+<h1 class="font-display text-headline-lg-mobile md:text-display text-on-background">Xyryle Adrian B. Cator</h1>
+</div>
+<p class="text-body-lg font-body-lg text-on-surface-variant max-w-lg" data-reveal="" style="transition-delay: 100ms;">
+                        A passionate web developer dedicated to building high-performance, accessible, and visually stunning digital experiences. Transforming complex problems into elegant, user-centric solutions.
+                    </p>
+<div class="flex items-center gap-4 py-4 reveal-stagger" data-reveal="" style="transition-delay: 160ms;">
+<a aria-label="Facebook" class="social-btn" href="#">
+<span class="material-symbols-outlined text-[18px]">face_nod</span>
+</a>
+<a aria-label="Twitter" class="social-btn" href="#">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</a>
+<a aria-label="Instagram" class="social-btn" href="#">
+<span class="material-symbols-outlined text-[18px]">photo_camera</span>
+</a>
+<a aria-label="LinkedIn" class="social-btn" href="#">
+<span class="material-symbols-outlined text-[18px]">group</span>
+</a>
+</div>
+<div class="flex flex-wrap items-center gap-4 md:gap-8" data-reveal="" style="transition-delay: 220ms;">
+<button class="bg-primary text-on-primary font-body-md font-bold px-8 py-3 rounded-full shadow-lg transition-transform hover:-translate-y-1 active:scale-95">
+                            Download CV
+                        </button>
+<div class="hidden lg:flex items-center gap-2 text-primary font-bold uppercase tracking-widest text-[14px]">
+<span class="material-symbols-outlined" data-icon="code">code</span>
+                            Web Developer
+                        </div>
+</div>
+</div>
+<!-- Diagonal Accent Decoration -->
+<div class="hero-circle-accent hidden md:block"></div>
+</div>
+<!-- Right Side: Visual -->
+<div class="w-full md:w-2/5 relative h-[320px] sm:h-[400px] md:h-full">
+<!-- Background Shape -->
+<div class="absolute inset-0 bg-primary-container z-0 diagonal-split"></div>
+<!-- Floating Badge (Mobile Only / Responsive Shift) -->
+<div class="absolute bottom-10 left-10 md:hidden bg-surface p-4 rounded-xl shadow-xl z-20 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="code">code</span>
+<span class="font-bold text-primary">Web Developer</span>
+</div>
+<!-- Professional Photo Placeholder -->
+<div class="relative z-10 w-full h-full flex items-end justify-center md:justify-end">
+<img alt="A professional portrait of a confident young male web developer with stylish glasses and a modern haircut, smiling at the camera. He is wearing a clean casual-professional outfit, standing against a vibrant purple studio background. The lighting is high-key and professional, highlighting his friendly yet competent demeanor in a modern tech-focused aesthetic." class="h-[80%] md:h-[90%] w-auto object-contain object-bottom select-none" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQyS9HVeLW8GjDNyODV4yy_NZ7mwzPQXy7ham2rBovYXow2hxtct24UTsvTJ4P9LAJdwxVY7oURfhUTnbttNyIXZeNtO4d5IK3Vp3-jB5eMpEgjClTa4ROKyasV8zyIno-K_7mUd082k1t30Wre7pMVZ6anzIW4wvmi1ejnwSB5YAHK9cg_lQ1e1osEC9WPVJfyzKdtijTfD1Aq5s5EjhcLR6f9hZ9utsAb69eeDZXlPHY0rrv1IoI0D-P-yNrN_9u3BWY6JSNKCI">
+</div>
+<!-- Abstract Code Decoration -->
+<div class="absolute top-1/4 right-10 opacity-20 text-on-primary-container font-label-code hidden lg:block">
+<pre><code>&lt;section class="hero"&gt;
+  &lt;h1 class=""&gt;Build Bold&lt;/h1&gt;
+&lt;/section&gt;</code></pre>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-inverse-surface border-t border-outline-variant dark:border-outline no-border flat no shadows">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-gutter py-stack-lg max-w-container-max mx-auto">
+<div class="font-display text-headline-md font-bold text-primary dark:text-inverse-primary mb-4 md:mb-0">Portfolio.</div>
+<div class="text-on-surface-variant dark:text-surface-variant font-body-md text-body-md text-center md:text-left mb-4 md:mb-0">
+                © 2024 Xyryle Adrian B. Cator. All rights reserved.
+            </div>
+<div class="flex gap-6 font-body-md text-body-md">
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors transition-opacity duration-200 hover:opacity-80" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors transition-opacity duration-200 hover:opacity-80" href="#">Terms of Service</a>
+</div>
+</div>
+</footer>
+<script src="shared/navbar.js" defer=""></script>
+<script src="shared/scroll-reveal.js" defer=""></script>
+<script>
+        // Smooth scroll implementation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                e.preventDefault();
+                const target = document.querySelector(targetId);
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body></html>

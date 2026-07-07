@@ -1,0 +1,41 @@
+/* Shared site-wide styles: scroll-reveal animations + small nav helpers. */
+
+[data-reveal] {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 650ms cubic-bezier(0.22, 1, 0.36, 1),
+                transform 650ms cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+}
+
+[data-reveal].reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger children of a `.reveal-stagger` container by 80ms increments. */
+.reveal-stagger > [data-reveal]:nth-child(1) { transition-delay: 0ms; }
+.reveal-stagger > [data-reveal]:nth-child(2) { transition-delay: 80ms; }
+.reveal-stagger > [data-reveal]:nth-child(3) { transition-delay: 160ms; }
+.reveal-stagger > [data-reveal]:nth-child(4) { transition-delay: 240ms; }
+.reveal-stagger > [data-reveal]:nth-child(5) { transition-delay: 320ms; }
+.reveal-stagger > [data-reveal]:nth-child(6) { transition-delay: 400ms; }
+.reveal-stagger > [data-reveal]:nth-child(7) { transition-delay: 480ms; }
+.reveal-stagger > [data-reveal]:nth-child(n+8) { transition-delay: 560ms; }
+
+@media (prefers-reduced-motion: reduce) {
+    [data-reveal] {
+        transition: none;
+    }
+}
+
+/* Prevents a flash of unstyled/duplicate nav before shared/navbar.js mounts it. */
+#site-header-mount {
+    display: block;
+    min-height: 5rem;
+}
+
+/* Decorative angled background accent used on hero/header sections. */
+.geometric-split {
+    clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);
+}
