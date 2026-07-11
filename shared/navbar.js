@@ -1,6 +1,9 @@
 // Shared top navigation bar. Single source of truth for the navbar markup
 // and behavior across every page (About page design is canonical).
 (function () {
+  // ----------------------------------------
+  // Nav data
+  // ----------------------------------------
   const NAV_LINKS = [
     { label: 'Home', href: 'index.html' },
     { label: 'About', href: 'about.html' },
@@ -32,6 +35,9 @@
     }).join('');
   }
 
+  // ----------------------------------------
+  // Rendering
+  // ----------------------------------------
   function render() {
     const mount = document.getElementById('site-header-mount');
     if (!mount) return;
@@ -54,6 +60,9 @@
     wireInteractions();
   }
 
+  // ----------------------------------------
+  // Interactions
+  // ----------------------------------------
   function wireInteractions() {
     const header = document.getElementById('site-header');
     const menuToggle = document.getElementById('mobile-menu-toggle');

@@ -1,5 +1,9 @@
 /* Shared site-wide styles: scroll-reveal animations + small nav helpers. */
 
+/* ========================================
+   Scroll Reveal
+======================================== */
+
 [data-reveal] {
     opacity: 0;
     transform: translateY(28px);
@@ -23,11 +27,9 @@
 .reveal-stagger > [data-reveal]:nth-child(7) { transition-delay: 480ms; }
 .reveal-stagger > [data-reveal]:nth-child(n+8) { transition-delay: 560ms; }
 
-@media (prefers-reduced-motion: reduce) {
-    [data-reveal] {
-        transition: none;
-    }
-}
+/* ========================================
+   Navigation
+======================================== */
 
 /* Prevents a flash of unstyled/duplicate nav before shared/navbar.js mounts it. */
 #site-header-mount {
@@ -35,7 +37,21 @@
     min-height: 5rem;
 }
 
+/* ========================================
+   Decorative Elements
+======================================== */
+
 /* Decorative angled background accent used on hero/header sections. */
 .geometric-split {
     clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+/* ========================================
+   Responsive / Accessibility
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    [data-reveal] {
+        transition: none;
+    }
 }
