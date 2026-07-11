@@ -45,7 +45,7 @@
     mount.innerHTML = `
       <header id="site-header" class="fixed top-0 left-0 w-full z-50 h-20 flex items-center bg-surface/70 dark:bg-inverse-surface/70 backdrop-blur-md border-b border-outline-variant/20 transition-shadow duration-300">
         <nav class="w-full max-w-container-max mx-auto px-gutter flex items-center justify-between">
-          <a href="index.html" class="font-display text-headline-md font-extrabold text-on-background dark:text-on-surface">Portfolio.</a>
+          <a href="index.html" class="font-display text-headline-md font-extrabold text-on-background dark:text-on-surface">XYRYLE.</a>
           <div class="hidden md:flex items-center gap-8">${renderLinks(false)}</div>
           <div class="flex items-center gap-2">
             <button id="theme-toggle" type="button" aria-label="Toggle dark mode" class="material-symbols-outlined p-2 rounded-full text-primary hover:bg-surface-container transition-colors">dark_mode</button>
