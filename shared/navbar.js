@@ -1,6 +1,25 @@
 // Shared top navigation bar. Single source of truth for the navbar markup
 // and behavior across every page (About page design is canonical).
 (function () {
+  const THEME_KEY = 'xyryle-theme';
+
+  function preferredTheme() {
+    let stored = null;
+    try {
+      stored = localStorage.getItem(THEME_KEY);
+    } catch (_e) {}
+    if (stored === 'dark' || stored === 'light') return stored;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+
+  function applyTheme(theme) {
+    const isDark = theme === 'dark';
+    document.documentElement.classList.toggle('dark', isDark);
+    document.documentElement.classList.toggle('light', !isDark);
+  }
+
+  applyTheme(preferredTheme());
+
   // ----------------------------------------
   // Nav data
   // ----------------------------------------
@@ -69,6 +88,13 @@
     const mobileMenu = document.getElementById('mobile-menu');
     const themeToggle = document.getElementById('theme-toggle');
 
+    function syncThemeToggle() {
+      const isDark = document.documentElement.classList.contains('dark');
+      themeToggle.textContent = isDark ? 'light_mode' : 'dark_mode';
+      themeToggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+      themeToggle.setAttribute('title', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+    }
+
     menuToggle.addEventListener('click', () => {
       const isOpen = !mobileMenu.classList.contains('hidden');
       mobileMenu.classList.toggle('hidden');
@@ -85,9 +111,15 @@
     });
 
     themeToggle.addEventListener('click', () => {
-      document.documentElement.classList.toggle('dark');
-      themeToggle.textContent = document.documentElement.classList.contains('dark') ? 'light_mode' : 'dark_mode';
+      const nextTheme = document.documentElement.classList.contains('dark') ? 'light' : 'dark';
+      try {
+        localStorage.setItem(THEME_KEY, nextTheme);
+      } catch (_e) {}
+      applyTheme(nextTheme);
+      syncThemeToggle();
     });
+
+    syncThemeToggle();
 
     window.addEventListener('scroll', () => {
       header.classList.toggle('shadow-md', window.scrollY > 20);

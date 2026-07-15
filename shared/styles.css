@@ -1,4 +1,149 @@
-/* Shared site-wide styles: scroll-reveal animations + small nav helpers. */
+/* Shared site-wide styles: theme, scroll-reveal animations + small nav helpers. */
+
+/* ========================================
+   Theme
+======================================== */
+
+:root {
+    color-scheme: light;
+    --color-background: #f9f9ff;
+    --color-surface: #f9f9ff;
+    --color-surface-container-lowest: #ffffff;
+    --color-surface-container-low: #f0f3ff;
+    --color-surface-container: #e7eefe;
+    --color-surface-container-high: #e2e8f8;
+    --color-surface-container-highest: #dce2f3;
+    --color-surface-variant: #dce2f3;
+    --color-primary: #630ed4;
+    --color-primary-container: #7c3aed;
+    --color-primary-fixed: #eaddff;
+    --color-primary-fixed-dim: #d2bbff;
+    --color-on-background: #151c27;
+    --color-on-surface: #151c27;
+    --color-on-surface-variant: #4a4455;
+    --color-on-primary: #ffffff;
+    --color-on-primary-container: #ede0ff;
+    --color-on-primary-fixed: #25005a;
+    --color-on-primary-fixed-variant: #5a00c6;
+    --color-outline: #7b7487;
+    --color-outline-variant: #ccc3d8;
+    --color-inverse-surface: #2a313d;
+    --color-inverse-on-surface: #ebf1ff;
+    --color-inverse-primary: #d2bbff;
+}
+
+html.dark {
+    color-scheme: dark;
+    --color-background: #0f1117;
+    --color-surface: #141821;
+    --color-surface-container-lowest: #10131a;
+    --color-surface-container-low: #181d28;
+    --color-surface-container: #1d2330;
+    --color-surface-container-high: #252b38;
+    --color-surface-container-highest: #2d3443;
+    --color-surface-variant: #3d4352;
+    --color-primary: #d2bbff;
+    --color-primary-container: #8b5cf6;
+    --color-primary-fixed: #302545;
+    --color-primary-fixed-dim: #c6adff;
+    --color-on-background: #eef2ff;
+    --color-on-surface: #eef2ff;
+    --color-on-surface-variant: #c8cfdd;
+    --color-on-primary: #241044;
+    --color-on-primary-container: #f2eaff;
+    --color-on-primary-fixed: #efe4ff;
+    --color-on-primary-fixed-variant: #d2bbff;
+    --color-outline: #858da0;
+    --color-outline-variant: #3f4658;
+    --color-inverse-surface: #eef2ff;
+    --color-inverse-on-surface: #151c27;
+    --color-inverse-primary: #630ed4;
+}
+
+body {
+    background-color: var(--color-background);
+    color: var(--color-on-background);
+    transition: background-color 180ms ease, color 180ms ease;
+}
+
+.bg-background { background-color: var(--color-background) !important; }
+.bg-surface { background-color: var(--color-surface) !important; }
+.bg-surface-container-lowest { background-color: var(--color-surface-container-lowest) !important; }
+.bg-surface-container-low { background-color: var(--color-surface-container-low) !important; }
+.bg-surface-container { background-color: var(--color-surface-container) !important; }
+.bg-surface-container-high { background-color: var(--color-surface-container-high) !important; }
+.bg-surface-container-highest { background-color: var(--color-surface-container-highest) !important; }
+.bg-surface-variant { background-color: var(--color-surface-variant) !important; }
+.bg-primary { background-color: var(--color-primary) !important; }
+.bg-primary-container { background-color: var(--color-primary-container) !important; }
+.bg-primary-fixed { background-color: var(--color-primary-fixed) !important; }
+.bg-primary-container\/5 { background-color: color-mix(in srgb, var(--color-primary-container) 5%, transparent) !important; }
+.bg-primary-container\/10 { background-color: color-mix(in srgb, var(--color-primary-container) 10%, transparent) !important; }
+.bg-primary\/10 { background-color: color-mix(in srgb, var(--color-primary) 10%, transparent) !important; }
+.bg-primary\/20 { background-color: color-mix(in srgb, var(--color-primary) 20%, transparent) !important; }
+.bg-primary\/90 { background-color: color-mix(in srgb, var(--color-primary) 90%, transparent) !important; }
+.hover\:bg-surface-container:hover { background-color: var(--color-surface-container) !important; }
+.hover\:bg-primary:hover { background-color: var(--color-primary) !important; }
+.hover\:bg-primary\/5:hover { background-color: color-mix(in srgb, var(--color-primary) 5%, transparent) !important; }
+.hover\:bg-primary-container:hover { background-color: var(--color-primary-container) !important; }
+.hover\:bg-primary-container\/20:hover { background-color: color-mix(in srgb, var(--color-primary-container) 20%, transparent) !important; }
+.bg-white { background-color: var(--color-surface-container-lowest) !important; }
+.bg-white\/80 { background-color: color-mix(in srgb, var(--color-surface-container-lowest) 80%, transparent) !important; }
+.bg-white\/90 { background-color: color-mix(in srgb, var(--color-surface-container-lowest) 90%, transparent) !important; }
+
+.text-on-background { color: var(--color-on-background) !important; }
+.text-on-surface { color: var(--color-on-surface) !important; }
+.text-on-surface-variant { color: var(--color-on-surface-variant) !important; }
+.text-primary { color: var(--color-primary) !important; }
+.text-on-primary { color: var(--color-on-primary) !important; }
+.text-on-primary-container { color: var(--color-on-primary-container) !important; }
+.text-on-primary-container\/80 { color: color-mix(in srgb, var(--color-on-primary-container) 80%, transparent) !important; }
+.text-on-primary-fixed { color: var(--color-on-primary-fixed) !important; }
+.text-on-primary-fixed-variant { color: var(--color-on-primary-fixed-variant) !important; }
+.text-outline { color: var(--color-outline) !important; }
+.text-outline-variant { color: var(--color-outline-variant) !important; }
+.hover\:text-primary:hover { color: var(--color-primary) !important; }
+.group:hover .group-hover\:text-primary { color: var(--color-primary) !important; }
+.group:hover .group-hover\:text-white { color: #ffffff !important; }
+
+.border-outline { border-color: var(--color-outline) !important; }
+.border-outline-variant { border-color: var(--color-outline-variant) !important; }
+.border-outline-variant\/20 { border-color: color-mix(in srgb, var(--color-outline-variant) 20%, transparent) !important; }
+.border-primary { border-color: var(--color-primary) !important; }
+.border-primary\/20 { border-color: color-mix(in srgb, var(--color-primary) 20%, transparent) !important; }
+.border-primary\/30 { border-color: color-mix(in srgb, var(--color-primary) 30%, transparent) !important; }
+.hover\:border-primary:hover { border-color: var(--color-primary) !important; }
+.hover\:border-primary\/30:hover { border-color: color-mix(in srgb, var(--color-primary) 30%, transparent) !important; }
+.hover\:border-primary-container:hover { border-color: var(--color-primary-container) !important; }
+.focus\:border-primary:focus { border-color: var(--color-primary) !important; }
+.border-white { border-color: var(--color-surface-container-lowest) !important; }
+.border-white\/20 { border-color: color-mix(in srgb, var(--color-on-primary-container) 20%, transparent) !important; }
+
+html.dark input,
+html.dark textarea {
+    background-color: var(--color-surface-container-lowest);
+    color: var(--color-on-surface);
+}
+
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+    color: var(--color-outline);
+}
+
+html.dark .glass-card {
+    background: color-mix(in srgb, var(--color-surface-container-high) 72%, transparent);
+    border-color: color-mix(in srgb, var(--color-outline-variant) 55%, transparent);
+}
+
+html.dark .filter-chip {
+    background: var(--color-surface-container);
+    color: var(--color-on-surface-variant);
+}
+
+html.dark .filter-chip.is-active {
+    background: var(--color-primary);
+    color: var(--color-on-primary);
+}
 
 /* ========================================
    Scroll Reveal
