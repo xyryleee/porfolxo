@@ -3,7 +3,7 @@ import GradientASCII from "../components/GradientASCII";
 import ProfileCard from "../components/ProfileCard";
 import StrokeText from "../components/StrokeText";
 
-export default function Home() {
+export default function Home({ onAsciiComplete, heroVisible = true }) {
   return (
     <section
       id="home"
@@ -16,6 +16,7 @@ export default function Home() {
           characters=" =+xX0S8#@"
           cellSize={18}
           density={0.8}
+          onIntroComplete={onAsciiComplete}
         />
         <div className="absolute inset-0 bg-black/55" />
       </div>
@@ -26,7 +27,7 @@ export default function Home() {
                 WEB DEVELOPER · CREATIVE BUILDER
               </p>
               <h1 className="font-display text-headline-lg-mobile md:text-display" aria-label="Xyryle Cator">
-                <StrokeText as="span" text="Xyryle Cator" fontSize={72} fontWeight={800} letterSpacing={-2} strokeColor="#FF9E00" strokeWidth={1.8} drawDuration={1.8} fillDelay={0.15} className="hero-stroke-text" />
+                <StrokeText as="span" text="Xyryle Cator" fontSize={72} fontWeight={800} letterSpacing={-2} strokeColor="#FF9E00" strokeWidth={1.8} drawDuration={1.8} fillDelay={0.15} className="hero-stroke-text" enabled={heroVisible} />
               </h1>
             </ScrollReveal>
             <ScrollReveal delay={100}>

@@ -455,6 +455,7 @@ const GradientASCII = ({
   scrambleRadius = 0.1,
   clickEffect = 'wave',
   intro = true,
+  onIntroComplete,
   lightMode = false,
   fontFamily = DEFAULT_FONT,
   dpr,
@@ -555,6 +556,7 @@ const GradientASCII = ({
     let time = 0;
     let glyphTime = 0;
     let introClock = settingsRef.current.intro && !reduce ? 0 : 1;
+    let introCompleteNotified = false;
     let frameSeed = 0;
     let grainClock = 0;
     let raf = 0;
@@ -774,7 +776,13 @@ const GradientASCII = ({
         time += dt * s.speed * 0.5;
         glyphTime += dt * Math.max(s.speed, 0.15);
       }
-      if (introClock < 1) introClock = Math.min(1, introClock + dt / INTRO_SECONDS);
+      if (introClock < 1) {
+        introClock = Math.min(1, introClock + dt / INTRO_SECONDS);
+        if (introClock === 1 && !introCompleteNotified) {
+          introCompleteNotified = true;
+          settingsRef.current.onIntroComplete?.();
+        }
+      }
       grainClock += dt;
       if (!reduce && grainClock > 1 / 24) {
         grainClock = 0;
@@ -851,6 +859,10 @@ const GradientASCII = ({
     document.addEventListener('visibilitychange', onVisibility);
     resize();
     wakeRef.current = wake;
+    if (introClock === 1 && !introCompleteNotified) {
+      introCompleteNotified = true;
+      settingsRef.current.onIntroComplete?.();
+    }
 
     const dispose = () => {
       if (disposed) return;

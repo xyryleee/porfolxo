@@ -18,7 +18,7 @@ export default function StrokeText({
   drawDuration = 1.6, fillDelay = 0.2, stagger = 0.05, ease = 'power2.out', trigger = 'mount',
   fillMode = 'wipe', wipeFrom = 'left', fontSize = 128, fontWeight = 800, fontFamily = 'inherit',
   letterSpacing = -4, reverse = false, strokeStyle = 'solid', dashLength = 10, marching = false,
-  hoverRedraw = false, shadow = false, shadowColor, className = '', style = {}, as: Tag = 'span', id,
+  hoverRedraw = false, shadow = false, shadowColor, className = '', style = {}, as: Tag = 'span', id, enabled = true,
 }) {
   const rootRef = useRef(null);
   const textRef = useRef(null);
@@ -112,7 +112,7 @@ export default function StrokeText({
     } else {
       timeline = build();
       if (trigger === 'scroll') scrollTrigger = ScrollTrigger.create({ trigger: root, start: 'top 82%', once: true, onEnter: () => timeline?.play(0) });
-      else timeline.play(0);
+      else if (enabled) timeline.play(0);
       if (hoverRedraw && trigger !== 'loop') {
         redraw = () => {
           if (!timeline || timeline.progress() < 1) return;
@@ -128,7 +128,7 @@ export default function StrokeText({
       scrollTrigger?.kill(); timeline?.kill(); march?.kill();
       gsap.killTweensOf(targets);
     };
-  }, [box, dash, drawDuration, fillDelay, stagger, ease, trigger, fillMode, wipeFrom, reverse, pattern, dashPeriod, marching, hoverRedraw, castShadow, lift, fontSize]);
+  }, [box, dash, drawDuration, fillDelay, stagger, ease, trigger, fillMode, wipeFrom, reverse, pattern, dashPeriod, marching, hoverRedraw, castShadow, lift, fontSize, enabled]);
 
   const viewBox = box ? `${box.x} ${box.y} ${box.width} ${box.height}` : `0 ${-fontSize} 600 ${fontSize * 1.3}`;
   const wipeStart = box ? getWipeFrames(box, wipeFrom).start : null;
