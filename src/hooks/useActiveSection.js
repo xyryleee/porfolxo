@@ -1,0 +1,2 @@
+import { useEffect,useState } from 'react';
+export function useActiveSection(ids){const[active,setActive]=useState(ids[0]);useEffect(()=>{const observer=new IntersectionObserver(entries=>entries.forEach(e=>e.isIntersecting&&setActive(e.target.id)),{rootMargin:'-80px 0px -45% 0px',threshold:.15});ids.forEach(id=>{const el=document.getElementById(id);if(el)observer.observe(el)});return()=>observer.disconnect()},[ids]);return active}
