@@ -4,6 +4,8 @@ import tailwindcss from '@tailwindcss/vite';
 import { fileURLToPath, URL } from 'node:url';
 
 export default defineConfig({
+  // GitHub Pages serves this repository as /porfolxo/.
+  base: '/porfolxo/',
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {

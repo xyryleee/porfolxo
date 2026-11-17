@@ -1,17 +1,9 @@
-import { useEffect, useState } from "react";
 import ScrollReveal from "../components/ScrollReveal";
 import GradientASCII from "../components/GradientASCII";
 import ProfileCard from "../components/ProfileCard";
 import StrokeText from "../components/StrokeText";
 
 export default function Home() {
-  const [asciiComplete, setAsciiComplete] = useState(false);
-
-  useEffect(() => {
-    const timer = window.setTimeout(() => setAsciiComplete(true), 2400);
-    return () => window.clearTimeout(timer);
-  }, []);
-
   return (
     <section
       id="home"
@@ -27,8 +19,7 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-black/55" />
       </div>
-      {asciiComplete && (
-        <div className="hero-layout relative z-10 max-w-container-max mx-auto px-gutter w-full grid md:grid-cols-2 gap-12 items-center">
+      <div className="hero-layout relative z-10 max-w-container-max mx-auto px-gutter w-full grid md:grid-cols-2 gap-12 items-center">
           <div className="hero-copy">
             <ScrollReveal>
               <p className="font-label-caps text-primary mb-4">
@@ -68,14 +59,13 @@ export default function Home() {
                 title="Computer Science Student"
                 handle="xyrylecator"
                 status="Available for Opportunities"
-                avatarUrl="/assets/xy.png"
+                avatarUrl={`${import.meta.env.BASE_URL}assets/xy.png`}
                 contactHref="#contact"
                 showUserInfo={true}
               />
             </div>
           </ScrollReveal>
-        </div>
-      )}
+      </div>
     </section>
   );
 }

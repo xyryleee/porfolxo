@@ -1,16 +1,18 @@
 import DriftWall from '../components/DriftWall';
 
+const asset = (name) => `${import.meta.env.BASE_URL}assets/${name}`;
+
 const moments = [
-  { image: '/assets/xy.png', title: 'A new chapter' },
-  { image: '/assets/ka-kalakbay.png', title: 'Out exploring' },
-  { image: '/assets/taskalinga.png', title: 'Building with purpose' },
-  { image: '/assets/landr.png', title: 'Late-night ideas' },
-  { image: '/assets/transpogapo.png', title: 'Making things move' },
-  { image: '/assets/xy.png', title: 'Small wins' },
-  { image: '/assets/ka-kalakbay.png', title: 'New places' },
-  { image: '/assets/taskalinga.png', title: 'Good people' },
-  { image: '/assets/landr.png', title: 'Side quests' },
-  { image: '/assets/transpogapo.png', title: 'In progress' },
+  { image: asset('xy.png'), title: 'A new chapter' },
+  { image: asset('ka-kalakbay.png'), title: 'Out exploring' },
+  { image: asset('taskalinga.png'), title: 'Building with purpose' },
+  { image: asset('landr.png'), title: 'Late-night ideas' },
+  { image: asset('transpogapo.png'), title: 'Making things move' },
+  { image: asset('xy.png'), title: 'Small wins' },
+  { image: asset('ka-kalakbay.png'), title: 'New places' },
+  { image: asset('taskalinga.png'), title: 'Good people' },
+  { image: asset('landr.png'), title: 'Side quests' },
+  { image: asset('transpogapo.png'), title: 'In progress' },
 ];
 
 export default function Life() {
