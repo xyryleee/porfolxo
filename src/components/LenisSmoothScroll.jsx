@@ -20,6 +20,16 @@ export default function LenisSmoothScroll({ children }) {
     const updateLenis = ({ timestamp }) => {
       const lenis = lenisRef.current?.lenis;
       if (!lenis) return;
+
+      // React Aria locks document scrolling while a dialog is open. Keep Lenis
+      // stopped during that lock so it cannot redirect wheel or touch input
+      // from an inside-scrolling modal to the page.
+      const modalOpen = document.querySelector('[role="dialog"]');
+      if (modalOpen) {
+        if (!lenis.isStopped) lenis.stop();
+        return;
+      }
+
       if (lenis.isStopped) lenis.start();
       lenis.raf(timestamp);
     };

@@ -11,7 +11,7 @@ export default function Home({ onAsciiComplete, heroVisible = true }) {
     >
       <div className="absolute inset-0" aria-hidden="true">
         <GradientASCII
-          colors={["#240046", "#5A189A", "#FF6D00", "#FF9E00"]}
+          colors={["#240046", "#5A189A", "#FFC300", "#FFC300"]}
           shape="horizon"
           characters=" =+xX0S8#@"
           cellSize={18}
@@ -23,11 +23,11 @@ export default function Home({ onAsciiComplete, heroVisible = true }) {
       <div className="hero-layout relative z-10 max-w-container-max mx-auto px-gutter w-full grid md:grid-cols-2 gap-12 items-center">
           <div className="hero-copy">
             <ScrollReveal>
-              <p className="font-label-caps text-primary mb-4">
+              <p className="font-label-caps font-semibold text-primary mb-4">
                 WEB DEVELOPER · CREATIVE BUILDER
               </p>
               <h1 className="font-display text-headline-lg-mobile md:text-display" aria-label="Xyryle Cator">
-                <StrokeText as="span" text="Xyryle Cator" fontSize={72} fontWeight={800} letterSpacing={-2} strokeColor="#FF9E00" strokeWidth={1.8} drawDuration={1.8} fillDelay={0.15} className="hero-stroke-text" enabled={heroVisible} />
+                <StrokeText as="span" text="Xyryle Cator" fontSize={72} fontWeight={800} letterSpacing={-2} strokeColor="#FFC300" strokeWidth={1.8} drawDuration={1.8} fillDelay={0.15} className="hero-stroke-text" enabled={heroVisible} />
               </h1>
             </ScrollReveal>
             <ScrollReveal delay={100}>
@@ -40,13 +40,13 @@ export default function Home({ onAsciiComplete, heroVisible = true }) {
               <div className="flex flex-wrap gap-4 mt-8">
                 <a
                   href="#projects"
-                  className="bg-primary text-on-primary font-bold px-8 py-3 rounded-full shadow-lg hover:-translate-y-1 transition-transform"
+                  className="bg-primary text-on-primary-fixed font-bold px-8 py-3 rounded-full shadow-lg hover:-translate-y-1 transition-transform"
                 >
-                  Explore my work
+                  Read the TranspoGAPO Case Study
                 </a>
                 <a
                   href="#contact"
-                  className="border border-primary text-primary px-8 py-3 rounded-full"
+                  className="border border-primary text-primary font-semibold px-8 py-3 rounded-full"
                 >
                   Let's talk
                 </a>

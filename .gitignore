@@ -15,6 +15,25 @@ coverage/
 *.p12
 *.pfx
 
+.agents
+.augment
+.claude
+.codebuddy
+.codewhale
+.continue
+.cursor
+.factory
+.freebuff
+.gemini
+.kilocode
+.kiro
+.opencode
+.qoder
+.roo
+.trae
+.warp
+.windsurf
+
 # Local logs and OS/editor files
 *.log
 npm-debug.log*

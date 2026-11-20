@@ -24,7 +24,7 @@ export default function Navbar({ active }) {
             items={items}
             activeIndex={activeIndex}
             theme="dark"
-            color="#ff8500"
+            color="#ffc300"
             size="sm"
             frame={false}
             particleCount={12}
@@ -36,11 +36,11 @@ export default function Navbar({ active }) {
             className="portfolio-gooey-nav"
           />
         </div>
-        <button onClick={() => setOpen(!open)} aria-label="Toggle menu" aria-expanded={open} className="md:hidden p-2">
+        <button onClick={() => setOpen(!open)} aria-label={open ? 'Close navigation menu' : 'Open navigation menu'} aria-controls="mobile-navigation" aria-expanded={open} className="menu-toggle md:hidden">
           {open ? <X /> : <Menu />}
         </button>
       </nav>
-      {open && <div className="md:hidden absolute top-20 left-0 w-full bg-surface/95 backdrop-blur-md border-b border-outline-variant/20"><div className="flex flex-col px-gutter py-6 gap-5">{links.map(([label, id]) => <a href={`#${id}`} key={id} onClick={() => setOpen(false)} className={`text-left nav-link ${active === id ? 'active' : ''}`}>{label}</a>)}</div></div>}
+      <div id="mobile-navigation" hidden={!open} className="md:hidden absolute top-20 left-0 w-full bg-surface/95 backdrop-blur-md border-b border-outline-variant/20"><div className="flex flex-col px-gutter py-6 gap-2">{links.map(([label, id]) => <a href={`#${id}`} key={id} onClick={() => setOpen(false)} aria-current={active === id ? 'location' : undefined} className={`mobile-nav-link nav-link ${active === id ? 'active' : ''}`}>{label}</a>)}</div></div>
     </header>
   );
 }

@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { ArrowUpRight, Mail } from 'lucide-react';
 import './ProfileCard.css';
+import BorderGlow from './BorderGlow';
 
 export default function ProfileCard({
   name,
@@ -46,6 +47,7 @@ export default function ProfileCard({
   }, []);
 
   return (
+    <BorderGlow className="profile-card-glow" backgroundColor="#160b20" borderRadius={20} glowRadius={30}>
     <article ref={cardRef} className="profile-card" aria-label={`${name}, ${title}`}>
       <div className="profile-card__photo-wrap">
         <img className="profile-card__photo" src={avatarUrl} alt={`Portrait of ${name}`} />
@@ -68,8 +70,8 @@ export default function ProfileCard({
               <ArrowUpRight size={17} strokeWidth={1.8} />
             </a>
             <div className="profile-card__socials" aria-label="Social links">
-              <a href="https://github.com/xyryle" target="_blank" rel="noreferrer" aria-label="GitHub"><span className="profile-card__social-letter">GH</span></a>
-              <a href="https://www.linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn"><span className="profile-card__social-letter">in</span></a>
+              <a href="https://github.com/xyryleee" target="_blank" rel="noreferrer" aria-label="GitHub"><span className="profile-card__social-letter">GH</span></a>
+              <a href="https://www.linkedin.com/in/catorxy/" target="_blank" rel="noreferrer" aria-label="LinkedIn"><span className="profile-card__social-letter">in</span></a>
               <a href="mailto:xyryle.cator@gmail.com" aria-label="Email"><Mail size={17} strokeWidth={1.7} /></a>
             </div>
           </div>
@@ -77,5 +79,6 @@ export default function ProfileCard({
       )}
       <span className="profile-card__glare" aria-hidden="true" />
     </article>
+    </BorderGlow>
   );
 }
