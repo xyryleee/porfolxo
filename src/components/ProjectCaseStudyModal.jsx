@@ -89,7 +89,7 @@ function TranspogapoCaseStudy({ project }) {
           <p>TranspoGAPO is a map-based transport planner for Olongapo. Passengers can explore jeepney routes, tricycle terminals, and landmarks, then plan a trip option and follow it with GPS navigation.</p>
         </div>
         <dl className="case-study-project-brief__facts">
-          <div><dt>My role</dt><dd>Software Engineer Intern · Requirements Engineering and QA</dd></div>
+          <div><dt>My role</dt><dd>Requirements Engineering and QA</dd></div>
           <div><dt>Contribution</dt><dd>Defined system requirements and led quality assurance.</dd></div>
           <div><dt>Technology</dt><dd>{project.technologies?.join(' · ')}</dd></div>
         </dl>
