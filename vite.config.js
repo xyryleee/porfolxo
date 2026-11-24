@@ -11,7 +11,7 @@ export default defineConfig({
   // The site's media lives in the top-level assets directory, outside Vite's
   // default public directory. Copy it into each production build.
   build: {
-    copyPublicDir: false,
+    copyPublicDir: true,
     rollupOptions: {
       plugins: [
         {

@@ -1,77 +1,21 @@
-# Portfolio Context Handoff
+# Xyryle Portfolio
 
-## React + Vite
+Personal web developer portfolio built with React and Vite as a single-page site.
 
-The portfolio now includes a React/Vite single-page application in `src/`. Install dependencies with `npm install`, run it with `npm run dev`, and create a production build with `npm run build`.
+## Development
 
-## Purpose
+```sh
+npm install
+npm run dev
+```
 
-This directory contains Xyryle Adrian B. Cator's personal web developer portfolio, restructured as a **single-page scrolling website** instead of having separate HTML pages.
+Create a local `.env` from `.env.example` and set the EmailJS values before testing contact form delivery. The deployment workflow reads `VITE_EMAILJS_SERVICE_ID`, `VITE_EMAILJS_TEMPLATE_ID`, and `VITE_EMAILJS_PUBLIC_KEY` from GitHub Actions secrets.
 
-## Site map
+## Build and deploy
 
-- `index.html` — single-page portfolio with Home/Hero, About, Projects, and Contact sections, all accessible via anchor navigation.
-- `about.html` — preserved for reference; content transferred to index.html.
-- `projects.html` — preserved for reference; content transferred to index.html.
-- `contact.html` — preserved for reference; content transferred to index.html.
-- `shared/styles.css` — shared visual styles, animation classes, and scroll-margin utilities.
-- `shared/navbar.js` — single source of truth for the responsive header, anchor-based navigation, active-page state via IntersectionObserver, mobile menu, and light/dark theme toggle.
-- `shared/scroll-reveal.js` — IntersectionObserver-based reveal behavior for elements marked with `data-reveal`.
-- `assets/` — portfolio imagery and video/media files used by the pages.
-- `README.md` — project description and handoff notes.
+```sh
+npm run build
+npm run preview
+```
 
-## Visual and interaction language
-
-- Tailwind CSS is loaded from the CDN in each page; the pages use Tailwind utility classes plus `shared/styles.css`.
-- Typography uses Hanken Grotesk for the main UI and JetBrains Mono for code-style labels.
-- The primary accent is purple, with light and dark themes controlled by the `dark` class on `<html>`.
-- Theme preference is stored in `localStorage` under `xyryle-theme`; system preference is used when no saved preference exists.
-- The header is mounted through `<div id="site-header-mount"></div>` and rendered by `shared/navbar.js`.
-- Smooth scroll to section anchors using `scroll-behavior: smooth` on `<html>` and `scrollIntoView({ behavior: 'smooth' })`.
-- Section headings are offset by `scroll-margin-top: 80px` to account for the fixed navigation bar.
-- Preserve reduced-motion support when changing animations.
-
-## Navigation
-
-| Navigation Item | Behavior |
-|---|---|
-| Home | Scrolls to the Hero Section (`#home`) |
-| About | Scrolls to the About Me Section (`#about`) |
-| Projects | Scrolls to the Projects Section (`#projects`) |
-| Contact | Scrolls to the Contact Section (`#contact`) |
-
-- Clicking a navigation item smoothly scrolls to its corresponding section.
-- The URL hash updates accordingly (e.g., `#projects`).
-- The currently visible section determines which navigation item is highlighted via Intersection Observer.
-- Clicking the logo or Home button returns visitors to the top.
-- Navigation works correctly on both desktop and mobile.
-- The mobile navigation menu automatically closes after a section is selected.
-
-## Working conventions
-
-- Keep the four page names and the shared asset paths stable unless a coordinated navigation change is intended.
-- Put site-wide header behavior in `shared/navbar.js`; do not duplicate navbar markup across pages.
-- Put reusable reveal behavior in `shared/scroll-reveal.js` and opt elements in with `data-reveal`.
-- Maintain responsive behavior for mobile and desktop layouts.
-- Use descriptive image `alt` text and preserve the existing semantic HTML structure.
-- Avoid introducing a build step or framework unless the project direction explicitly changes; this is currently a browser-served static site.
-- All four original page files (about.html, projects.html, contact.html) are preserved for reference; their content has been transferred to index.html.
-
-## Handoff checklist
-
-Before changing shared behavior:
-
-1. Check all four pages for matching header/footer expectations.
-2. Verify both light and dark themes.
-3. Verify the mobile menu and active navigation state.
-4. Check reduced-motion behavior for reveal and hero animations.
-5. Test the affected page at narrow and wide viewport sizes.
-
-## Domain glossary
-
-- **Portfolio site** — the complete static website in this directory, now a single-page layout.
-- **Page** — one of the four original HTML documents; about.html, projects.html, and contact.html are preserved for reference.
-- **Shared header** — the responsive navigation rendered by `shared/navbar.js` with anchor-based scrolling.
-- **Theme** — the light/dark appearance selected from saved preference or system preference.
-- **Reveal** — the one-time entrance animation applied to an element with `data-reveal`.
-- **Project asset** — an image or video in `assets/` used to represent portfolio work.
+GitHub Actions builds and deploys the `dist/` output to GitHub Pages. The site uses `index.html` as its entry point, with app code in `src/`, static icons in `public/`, and portfolio media in `assets/`.
